@@ -24,4 +24,4 @@ class sparkleRecipe(ConanFile):
                   strip_root=True)
 
     def build(self):
-        self._run("xcodebuild -project Sparkle.xcodeproj -scheme Sparkle -configuration Release build")
+        self.run("xcodebuild -project Sparkle.xcodeproj -scheme Sparkle -configuration Release build")
