@@ -3,5 +3,5 @@ project(PackageTest CXX)
 
 find_package(sparkle CONFIG REQUIRED)
 
-add_executable(example src/example.cpp)
+add_executable(example example.mm)
 target_link_libraries(example sparkle::sparkle)

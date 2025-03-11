@@ -32,3 +32,5 @@ class sparkleRecipe(ConanFile):
         copy(self, pattern="*", src=os.path.join(self.build_folder, "Sparkle.framework"), dst=os.path.join(self.package_folder, "lib"))
         copy(self, pattern="*", src=os.path.join(self.build_folder, "Sparkle.framework.dSym"), dst=os.path.join(self.package_folder, "lib"))
 
+    def package_info(self):
+        self.cpp_info.libs = ["sparkle"]
