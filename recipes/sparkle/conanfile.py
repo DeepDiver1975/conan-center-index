@@ -1,6 +1,6 @@
 from conan import ConanFile
 from conan.tools.apple import XcodeBuild
-from conan.tools.files import get
+from conan.tools.files import get, copy
 
 class sparkleRecipe(ConanFile):
     name = "sparkle"
@@ -25,3 +25,9 @@ class sparkleRecipe(ConanFile):
 
     def build(self):
         self.run("xcodebuild -project Sparkle.xcodeproj -scheme Sparkle -configuration Release build")
+
+    def package(self):
+        copy(self, "LICENSE", src=self.source_folder, dst=os.path.join(self.package_folder, "licenses"))
+        copy(self, pattern="*", src=os.path.join(self.build_folder, "Sparkle.framework"), dst=os.path.join(self.package_folder, "lib"))
+        copy(self, pattern="*", src=os.path.join(self.build_folder, "Sparkle.framework.dSym"), dst=os.path.join(self.package_folder, "lib"))
+
