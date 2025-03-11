@@ -25,4 +25,4 @@ class sparkleRecipe(ConanFile):
 
     def build(self):
         xcodebuild = XcodeBuild(self)
-        xcodebuild.build("Sparkle.xcodeproj")
+        xcodebuild.build("Sparkle.xcodeproj", "build")
