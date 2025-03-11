@@ -1,6 +1,7 @@
 from conan import ConanFile
 from conan.tools.apple import XcodeBuild
 from conan.tools.files import get, copy
+import os
 
 class sparkleRecipe(ConanFile):
     name = "sparkle"
